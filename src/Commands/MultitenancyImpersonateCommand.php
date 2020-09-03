@@ -1,12 +1,12 @@
 <?php
 
-namespace VictorYoalli\Skeleton\Commands;
+namespace VictorYoalli\MultitenancyImpersonate\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MultitenancyImpersonateCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'multitenancy-impersonate';
 
     public $description = 'My command';
 

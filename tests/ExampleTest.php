@@ -1,17 +1,17 @@
 <?php
 
-namespace VictorYoalli\Skeleton\Tests;
+namespace VictorYoalli\MultitenancyImpersonate\Tests;
 
 use Orchestra\Testbench\TestCase;
-use VictorYoalli\Skeleton\SkeletonServiceProvider;
+use VictorYoalli\MultitenancyImpersonate\MultitenancyImpersonateServiceProvider;
 
 class ExampleTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [SkeletonServiceProvider::class];
+        return [MultitenancyImpersonateServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {

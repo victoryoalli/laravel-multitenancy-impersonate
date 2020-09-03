@@ -1,9 +1,9 @@
 <?php
 
-namespace VictorYoalli\Skeleton\Tests;
+namespace VictorYoalli\MultitenancyImpersonate\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use VictorYoalli\Skeleton\SkeletonServiceProvider;
+use VictorYoalli\MultitenancyImpersonate\MultitenancyImpersonateServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -17,7 +17,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            MultitenancyImpersonateServiceProvider::class,
         ];
     }
 

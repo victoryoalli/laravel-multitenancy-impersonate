@@ -1,11 +1,11 @@
 {
-    "name": "victoryoalli/skeleton",
-    "description": "SkeletonDescription",
+    "name": "victoryoalli/multitenancy-impersonate",
+    "description": "MultitenancyImpersonateDescription",
     "keywords": [
         "victoryoalli",
-        "skeleton"
+        "multitenancy-impersonate"
     ],
-    "homepage": "https://github.com/victoryoalli/skeleton",
+    "homepage": "https://github.com/victoryoalli/multitenancy-impersonate",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VictorYoalli\\Skeleton\\": "src"
+            "VictorYoalli\\MultitenancyImpersonate\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VictorYoalli\\Skeleton\\Tests\\": "tests"
+            "VictorYoalli\\MultitenancyImpersonate\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VictorYoalli\\Skeleton\\SkeletonServiceProvider"
+                "VictorYoalli\\MultitenancyImpersonate\\MultitenancyImpersonateServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VictorYoalli\\Skeleton\\SkeletonFacade"
+                "MultitenancyImpersonate": "VictorYoalli\\MultitenancyImpersonate\\MultitenancyImpersonateFacade"
             }
         }
     },

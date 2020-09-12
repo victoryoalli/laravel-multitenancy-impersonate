@@ -16,11 +16,12 @@ class ImpersonateToken extends Model
         return $query->where('expired_at', '>', now())->whereNull('impersonated_at');
     }
 
-    public function touch():void
+    public function touch():bool
     {
         $this->impersonated_at = now();
         $this->ip_address = request()->ip();
         $this->user_id = auth()->id();
-        $this->save();
+
+        return $this->save();
     }
 }

@@ -1,4 +1,8 @@
-# Very short description of the package
+# Laravel Multitenancy Impersonate
+
+The intented functionality is to be able to impersonate a user of any tenant from a landlord instance.
+
+This package is made to be used with [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy).
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/multitenancy-impersonate)
 [![Build Status](https://img.shields.io/travis/victoryoalli/multitenancy-impersonate/master.svg?style=flat-square)](https://travis-ci.org/victoryoalli/multitenancy-impersonate)
@@ -47,6 +51,7 @@ class ImpersonateController
 
 ### Impersonate Tenant Controller
 Impersonates to the user of your choice. Needs a valid token and the user to be impersonated.
+Will be redirected to the provided `$redirect_url`.
 ```php
 use CanImpersonate;
 

@@ -1,6 +1,6 @@
 # Laravel Multitenancy Impersonate
 
-The intented functionality is to be able to impersonate a user of any tenant from a landlord instance.
+Laravel multitenancy impersonation from landlord to tenant.
 
 This package is made to be used with [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy).
 

@@ -1,9 +1,11 @@
 {
-    "name": "victoryoalli/multitenancy-impersonate",
-    "description": "MultitenancyImpersonateDescription",
+    "name": "victoryoalli/laravel-multitenancy-impersonate",
+    "description": "Laravel Multitenancy Impersonation from landlord to tenant",
     "keywords": [
         "victoryoalli",
-        "multitenancy-impersonate"
+        "laravel" ,
+        "multitenancy",
+        "impersonate"
     ],
     "homepage": "https://github.com/victoryoalli/multitenancy-impersonate",
     "license": "MIT",

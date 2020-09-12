@@ -6,7 +6,8 @@ use Spatie\Multitenancy\Models\Tenant;
 use VictorYoalli\MultitenancyImpersonate\Models\ImpersonateToken;
 use VictorYoalli\MultitenancyImpersonate\Tests\TestCase;
 
-class ImpersonateTokenTest extends TestCase {
+class ImpersonateTokenTest extends TestCase
+{
 
     /** @test */
     public function it_runs()

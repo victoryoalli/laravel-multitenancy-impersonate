@@ -14,11 +14,48 @@ You can install the package via composer:
 ```bash
 composer require victoryoalli/multitenancy-impersonate
 ```
+## Publish Config and Migrations
+```bash
+php artisan vendor:publish
+```
 
 ## Usage
 
+### Landlord Controller
+The Landlord controller creates the token and redirects to the tenant for automatic login.
 ``` php
-// Usage description here
+
+use VictorYoalli\MultitenancyImpersonate\Traits\CanImpersonate;
+
+class ImpersonateController
+{
+    use CanImpersonate;
+
+    public function store(Request $request)
+    {
+        $tenant = Tenant::find($request->get('tenant_id'));
+        $redirect_url = "https{$tenant->domain}/admin";
+        $impersonate = $this->impersonate($tenant,auth()->user(),$redirect_url)
+
+        $tenant_url = "https{$tenant->domain}/admin/impersonate";
+
+        return redirect("{$tenant_url}/{$impersonate->token}");
+    }
+
+}
+```
+
+### Impersonate Tenant Controller
+Impersonates to the user of your choice. Needs a valid token and the user to be impersonated.
+```php
+use CanImpersonate;
+
+public function __invoke(Request $request, string $token)
+    {
+        $user = User::firstOrFail();
+
+        return $this->impersonate($token, $user);
+    }
 ```
 
 ### Testing

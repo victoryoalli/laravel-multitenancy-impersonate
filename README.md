@@ -39,7 +39,7 @@ class ImpersonateController
     {
         $tenant = Tenant::find($request->get('tenant_id'));
         $redirect_url = "https{$tenant->domain}/admin";
-        $impersonate = $this->impersonate($tenant,auth()->user(),$redirect_url)
+        $impersonate = $this->createToken($tenant,auth()->user(),$redirect_url)
 
         $tenant_url = "https{$tenant->domain}/admin/impersonate";
 

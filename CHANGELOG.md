@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-multitenancy-impersonate` will be documented in this file.
 
+## 2.1.0 - 2026-01-02
+
+### Added
+- Laravel 12 support
+- PHP 8.4 support in CI
+
+### Changed
+- Minimum PHP version updated to 8.2 (required by Laravel 12)
+- Updated orchestra/testbench to ^10.0 for Laravel 12
+
 ## 2.0.0 - 2026-01-02
 
 ### Breaking Changes

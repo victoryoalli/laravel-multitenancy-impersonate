@@ -12,8 +12,8 @@ This package allows you to impersonate users from a landlord (main) application 
 
 ## Requirements
 
-- PHP ^8.1
-- Laravel ^10.0 or ^11.0
+- PHP ^8.2
+- Laravel ^10.0, ^11.0 or ^12.0
 - [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy) ^3.0 or ^4.0
 
 ## Installation

@@ -28,8 +28,8 @@ vendor/bin/phpunit --filter testMethodName
 ## CI/CD
 
 GitHub Actions runs tests on every push to `main` and on pull requests:
-- PHP versions: 8.1, 8.2, 8.3
-- Laravel versions: 10.x, 11.x (Laravel 11 requires PHP 8.2+)
+- PHP versions: 8.2, 8.3, 8.4
+- Laravel versions: 10.x, 11.x, 12.x
 
 Workflow file: `.github/workflows/tests.yml`
 

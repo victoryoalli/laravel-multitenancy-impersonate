@@ -4,8 +4,8 @@ Laravel multitenancy impersonation from landlord to tenant.
 
 This package is made to be used with [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy).
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/multitenancy-impersonate)
-[![Total Downloads](https://img.shields.io/packagist/dt/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/multitenancy-impersonate)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/victoryoalli/laravel-multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/laravel-multitenancy-impersonate)
+[![Total Downloads](https://img.shields.io/packagist/dt/victoryoalli/laravel-multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/laravel-multitenancy-impersonate)
 
 This package allows you to impersonate users from a landlord (main) application into tenant applications. It generates secure, time-limited tokens that enable seamless authentication across tenant databases.
 

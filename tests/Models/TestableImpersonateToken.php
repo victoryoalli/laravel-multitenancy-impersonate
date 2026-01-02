@@ -1,14 +1,13 @@
 <?php
 
-namespace VictorYoalli\MultitenancyImpersonate\Models;
+namespace VictorYoalli\MultitenancyImpersonate\Tests\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Multitenancy\Models\Concerns\UsesTenantConnection;
 
-class ImpersonateToken extends Model
+class TestableImpersonateToken extends Model
 {
-    use UsesTenantConnection;
+    protected $table = 'impersonate_tokens';
 
     protected $guarded = [];
 

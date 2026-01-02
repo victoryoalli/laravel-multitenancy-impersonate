@@ -16,7 +16,9 @@
       "Bash(gh release create:*)",
       "Bash(gh release:*)",
       "Bash(git branch:*)",
-      "Bash(gh run:*)"
+      "Bash(gh run:*)",
+      "Bash(composer update:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

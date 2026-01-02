@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer test:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpgrade to Laravel 10/11 with security improvements\n\n- Update dependencies: PHP ^8.1, Laravel ^10.0|^11.0, Spatie Multitenancy ^3.0|^4.0\n- Increase token TTL from 1s to 60s for practical usage\n- Add rate limiting to prevent brute force attacks on tokens\n- Add logging for token creation and impersonation events\n- Add unique index on token column and indexes for query optimization\n- Fix redirect code from 301 \\(permanent\\) to 302 \\(temporary\\)\n- Rename touch\\(\\) to markAsUsed\\(\\) for Laravel 10/11 compatibility\n- Add proper date casting for expired_at and impersonated_at\n- Update PHPUnit to v10/11 with modern #[Test] attributes\n- Add comprehensive tests for ImpersonateToken and CanImpersonate\n- Add TooManyAttemptsException for rate limit handling\n- Add CLAUDE.md for AI assistant guidance\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate README with correct usage and documentation\n\n- Remove outdated Travis CI and Scrutinizer badges\n- Add proper package description\n- Add Requirements section \\(PHP 8.1+, Laravel 10/11\\)\n- Add Configuration section with all options\n- Fix Landlord example: impersonate\\(\\) → createToken\\(\\)\n- Fix Tenant example: add proper class and imports\n- Improve code examples with comments\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(git checkout:*)",
+      "Bash(git pull:*)",
+      "Bash(git tag:*)",
+      "Bash(gh release create:*)",
+      "Bash(gh release:*)",
+      "Bash(git branch:*)",
+      "Bash(gh run:*)"
+    ]
+  }
+}

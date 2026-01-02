@@ -4,12 +4,16 @@ Laravel multitenancy impersonation from landlord to tenant.
 
 This package is made to be used with [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy).
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/multitenancy-impersonate)
-[![Build Status](https://img.shields.io/travis/victoryoalli/multitenancy-impersonate/master.svg?style=flat-square)](https://travis-ci.org/victoryoalli/multitenancy-impersonate)
-[![Quality Score](https://img.shields.io/scrutinizer/g/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://scrutinizer-ci.com/g/victoryoalli/multitenancy-impersonate)
-[![Total Downloads](https://img.shields.io/packagist/dt/victoryoalli/multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/multitenancy-impersonate)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/victoryoalli/laravel-multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/laravel-multitenancy-impersonate)
+[![Total Downloads](https://img.shields.io/packagist/dt/victoryoalli/laravel-multitenancy-impersonate.svg?style=flat-square)](https://packagist.org/packages/victoryoalli/laravel-multitenancy-impersonate)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package allows you to impersonate users from a landlord (main) application into tenant applications. It generates secure, time-limited tokens that enable seamless authentication across tenant databases.
+
+## Requirements
+
+- PHP ^8.1
+- Laravel ^10.0 or ^11.0
+- [Spatie Laravel Multitenancy](https://github.com/spatie/laravel-multitenancy) ^3.0 or ^4.0
 
 ## Installation
 
@@ -20,15 +24,30 @@ composer require victoryoalli/laravel-multitenancy-impersonate
 ```
 ## Publish Config and Migrations
 ```bash
-php artisan vendor:publish
+php artisan vendor:publish --provider="VictorYoalli\MultitenancyImpersonate\MultitenancyImpersonateServiceProvider"
+```
+
+## Configuration
+
+After publishing, you can modify `config/multitenancy-impersonate.php`:
+
+```php
+return [
+    'ttl' => 60,                // Token lifetime in seconds
+    'redirect_path' => '/home', // Default redirect after impersonation
+    'auth_guard' => 'web',      // Authentication guard to use
+    'rate_limit' => [
+        'max_attempts' => 5,    // Max token validation attempts
+        'decay_minutes' => 1,   // Minutes until attempts reset
+    ],
+];
 ```
 
 ## Usage
 
 ### Landlord Controller
 The Landlord controller creates the token and redirects to the tenant for automatic login.
-``` php
-
+```php
 use VictorYoalli\MultitenancyImpersonate\Traits\CanImpersonate;
 
 class ImpersonateController
@@ -38,29 +57,35 @@ class ImpersonateController
     public function store(Request $request)
     {
         $tenant = Tenant::find($request->get('tenant_id'));
-        $redirect_url = "https{$tenant->domain}/admin";
-        $impersonate = $this->impersonate($tenant,auth()->user(),$redirect_url)
+        $redirect_url = "https://{$tenant->domain}/admin";
 
-        $tenant_url = "https{$tenant->domain}/admin/impersonate";
+        // Create impersonation token in tenant's database
+        $impersonate = $this->createToken($tenant, auth()->user(), $redirect_url);
+
+        // Redirect to tenant's impersonation endpoint
+        $tenant_url = "https://{$tenant->domain}/impersonate";
 
         return redirect("{$tenant_url}/{$impersonate->token}");
     }
-
 }
 ```
 
-### Impersonate Tenant Controller
-Impersonates to the user of your choice. Needs a valid token and the user to be impersonated.
-Will be redirected to the provided `$redirect_url`.
+### Tenant Controller
+Validates the token and logs in the specified user. The user will be redirected to the `$redirect_url` provided when creating the token.
 ```php
-use CanImpersonate;
+use VictorYoalli\MultitenancyImpersonate\Traits\CanImpersonate;
 
-public function __invoke(Request $request, string $token)
+class TenantImpersonateController
+{
+    use CanImpersonate;
+
+    public function __invoke(Request $request, string $token)
     {
-        $user = User::firstOrFail();
+        $user = User::firstOrFail(); // Or find user by any criteria
 
         return $this->impersonate($token, $user);
     }
+}
 ```
 
 ### Testing

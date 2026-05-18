@@ -2,6 +2,23 @@
 
 All notable changes to `laravel-multitenancy-impersonate` will be documented in this file.
 
+## 2.3.0 - 2026-05-17
+
+### Added
+- Laravel Boost skill (`resources/boost/skills/laravel-multitenancy-impersonate-development/SKILL.md`) for AI-assisted development — provides Claude and compatible editors with accurate guidance on `CanImpersonate`, `ImpersonateToken`, config keys, rate limiting, security considerations, and testing patterns
+
+## 2.2.0 - 2026-03-13
+
+### Added
+- Support for `spatie/laravel-multitenancy` v2 (`^2.0`)
+- Support for Laravel 8.x and 9.x
+- Support for PHP 8.0 and 8.1
+- Expanded CI matrix covering PHP 8.0–8.4 with Laravel 8–12
+
+### Changed
+- Lowered minimum PHP requirement from `^8.2` to `^8.0`
+- Extended `illuminate/*` package constraints to include `^8.0|^9.0`
+
 ## 2.1.0 - 2026-01-02
 
 ### Added

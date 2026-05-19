@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-multitenancy-impersonate` will be documented in this file.
 
+## 2.4.0 - 2026-05-19
+
+### Added
+- Laravel 13.x support
+- Updated `illuminate/auth`, `illuminate/database`, `illuminate/support` constraints to include `^13.0`
+- Updated `orchestra/testbench` constraint to include `^11.0`
+- CI matrix now tests against Laravel 13.x with PHP 8.3 and 8.4
+
 ## 2.3.0 - 2026-05-17
 
 ### Added
